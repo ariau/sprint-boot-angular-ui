@@ -2,10 +2,9 @@
 const express = require('express');
 const http = require('http');
 const bodyParser = require('body-parser');
-const proxy = require('express-http-proxy');
+//const proxy = require('express-http-proxy');
 const cors = require('cors');
 const _app_folder = 'dist/bike-ui';
-
 
 const app = express();
 
@@ -16,11 +15,16 @@ app.use(bodyParser.urlencoded({ extended: false, limit: '20mb' }));
 app.use(cors());
 
 // Point static path to dist
-app.use(express.static(_app_folder));
+//app.use(express.static(_app_folder));
 
-// Set our api routes proxy to point to spring boot server
-app.use('/server', proxy('http://localhost:8080'));
+// Set our api routes proxy to point to spring boot server (local dev only)
+//app.use('/server', proxy('http://localhost:8080'));
 
+app.use(express.static(__dirname + '/dist/bike-ui'));
+
+app.get('/*', function(req,res) { 
+    res.sendFile(path.join(__dirname+'/dist/bike-ui/index.html'));
+});
 
 // Catch all other routes and return the index file
 app.all('*', function (req, res) {
@@ -30,8 +34,8 @@ app.all('*', function (req, res) {
 /**
  * Get port from environment and store in Express.
  */
- const port = '4201';
-app.set('port', port);
+ const port = '8080';
+//app.set('port', port);
 
 /**
  * Create HTTP server.
