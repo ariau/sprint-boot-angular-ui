@@ -15,7 +15,7 @@ export class AuthService0 {
     createAuth0Client({
       domain: "dev-8roai1ud.us.auth0.com",
       client_id: "2iuYuZmvWgprz7Iesd4pBb4oaCK7xDtB",
-      audience: environment.baseUrl,
+      audience: 'http://localhost:8080',
       scope: 'openid view:registration view:registrations',
       redirect_uri: `${window.location.origin}`
     })
