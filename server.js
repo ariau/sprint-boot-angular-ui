@@ -3,7 +3,7 @@ const express = require('express');
 const http = require('http');
 const bodyParser = require('body-parser');
 //const proxy = require('express-http-proxy');
-const cors = require('cors');
+//const cors = require('cors');
 const _app_folder = 'dist/bike-ui';
 
 const app = express();
@@ -12,7 +12,7 @@ const app = express();
 app.use(bodyParser.json({limit: '20mb'}));
 app.use(bodyParser.urlencoded({ extended: false, limit: '20mb' }));
 
-app.use(cors());
+//app.use(cors());
 
 // Point static path to dist
 //app.use(express.static(_app_folder));
