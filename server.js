@@ -18,7 +18,7 @@ app.use(cors());
 //app.use(express.static(_app_folder));
 
 // Set our api routes proxy to point to spring boot server (local dev only)
-//app.use('/server', proxy('http://localhost:8080'));
+app.use('/api', proxy('https://spring-boot-angular-appl.herokuapp.com'));
 
 app.use(express.static(__dirname + '/dist/bike-ui'));
 
