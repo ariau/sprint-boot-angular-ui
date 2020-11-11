@@ -22,9 +22,6 @@ let options = {
     target: api, //api.example.com 
     changeOrigin: true,
     logLevel: "debug",
-    "pathRewrite": {
-        "^/server": ""
-      },
     onError: function onError(err, req, res) {
     console.log("Something went wrong with the proxy.", err)
     res.end();
@@ -32,7 +29,7 @@ let options = {
 };
 
 // Set our api routes proxy to point to spring boot server (local dev only)
-app.use('/server', proxy(options));//only forward calls with '/api'
+app.use(api + '/api', proxy(options));//only forward calls with '/api'
 
 app.use(express.static(__dirname + '/dist/bike-ui'));
 
