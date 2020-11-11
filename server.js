@@ -22,7 +22,7 @@ let options = {
     changeOrigin: true,
     logLevel: "debug",
     onError: function onError(err, req, res) {
-    console.log("Something went wrong with the proxy middleware.", err)
+    console.log("Something went wrong with the proxy.", err)
     res.end();
     }
 };
