@@ -2,7 +2,7 @@
 const express = require('express');
 const http = require('http');
 const bodyParser = require('body-parser');
-//const proxy = require('express-http-proxy');
+const proxy = require('express-http-proxy');
 const cors = require('cors');
 const _app_folder = 'dist/bike-ui';
 
@@ -17,8 +17,18 @@ app.use(cors());
 // Point static path to dist
 //app.use(express.static(_app_folder));
 
+let options = {
+    target: "https://spring-boot-angular-appl.herokuapp.com", //api.example.com 
+    changeOrigin: true,
+    logLevel: "debug",
+    onError: function onError(err, req, res) {
+    console.log("Something went wrong with the proxy middleware.", err)
+    res.end();
+    }
+};
+
 // Set our api routes proxy to point to spring boot server (local dev only)
-app.use('/api', proxy('https://spring-boot-angular-appl.herokuapp.com'));
+app.use('/api', proxy(options));//only forward calls with '/api'
 
 app.use(express.static(__dirname + '/dist/bike-ui'));
 

@@ -3,7 +3,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from "../../environments/environment";
 
 const httpOptions = {
-  headers: new HttpHeaders({'Content-Type' : 'application/json'})
+  headers: new HttpHeaders({'Content-Type' : 'application/json',
+                            'Accept' : 'application/json'})
 };
 
 @Injectable({
@@ -16,11 +17,11 @@ export class BikeService {
   constructor(private http:HttpClient) { }
 
   getBikes() {
-    return this.http.get(this.baseUrl + 'api/v1/bikes');
+    return this.http.get(this.baseUrl + 'api/v1/bikes', httpOptions);
   }
 
   getBike(id: number){
-    return this.http.get(this.baseUrl + 'api/v1/bikes/' + id);
+    return this.http.get(this.baseUrl + 'api/v1/bikes/' + id, httpOptions);
   }
 
   createBikeRegistration(bike){
