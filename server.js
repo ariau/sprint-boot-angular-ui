@@ -7,6 +7,7 @@ const cors = require('cors');
 const _app_folder = 'dist/bike-ui';
 
 const app = express();
+const api = 'https://spring-boot-angular-appl.herokuapp.com';
 
 // Parsers for POST data
 app.use(bodyParser.json({limit: '20mb'}));
@@ -18,7 +19,7 @@ app.use(cors());
 //app.use(express.static(_app_folder));
 
 let options = {
-    target: "https://spring-boot-angular-appl.herokuapp.com", //api.example.com 
+    target: api, //api.example.com 
     changeOrigin: true,
     logLevel: "debug",
     onError: function onError(err, req, res) {
@@ -28,13 +29,13 @@ let options = {
 };
 
 // Set our api routes proxy to point to spring boot server (local dev only)
-app.use('/api', proxy(options));//only forward calls with '/api'
+app.use(api + '/api', proxy(options));//only forward calls with '/api'
 
 app.use(express.static(__dirname + '/dist/bike-ui'));
 
-app.get('/*', function(req,res) { 
+/*app.get('/*', function(req,res) { 
     res.sendFile(path.join(__dirname+'/dist/bike-ui/index.html'));
-});
+});*/
 
 // Catch all other routes and return the index file
 app.all('*', function (req, res) {

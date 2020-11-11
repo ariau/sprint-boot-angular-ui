@@ -32,5 +32,4 @@ export class BikeService {
     return this.http.post(this.baseUrl + 'api/v1/bikes', body, httpOptions);
   }
 
-
 }
