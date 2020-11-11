@@ -28,3 +28,15 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## For local dev with proxy configuration
 In package.json, add 'ng start --proxy-config proxy.conf.json'
+
+## Useful Links
+
+[angular_deploy]: https://medium.com/better-programming/using-heroku-to-deploy-an-angular-app-5be838ef1de7
+[angular_deploy2]: https://itnext.io/how-to-deploy-angular-application-to-heroku-1d56e09c5147
+[proxy_to_backend]: https://medium.com/@praveen.beatle/avoiding-pre-flight-options-calls-on-cors-requests-baba9692c21a
+[cors]: https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS
+
+## Links
+* Angular Deploy on Heroku: [angular_deploy] + [angular_deploy2]
+* Avoiding Pre-flight and call deployed backend : [proxy_to_backend]
+* CORS concept : [cors]
