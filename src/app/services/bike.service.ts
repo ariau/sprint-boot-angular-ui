@@ -4,7 +4,8 @@ import { environment } from "../../environments/environment";
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type' : 'application/json',
-                            'Accept' : 'application/json'})
+                            'Accept' : 'application/json',
+                            'Access-Control-Allow-Origin': environment.baseUrl})
 };
 
 @Injectable({
