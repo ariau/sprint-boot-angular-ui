@@ -7,7 +7,7 @@ const cors = require('cors');
 const _app_folder = 'dist/bike-ui';
 
 const app = express();
-const api = 'https://spring-boot-angular-appl.herokuapp.com';
+const api = 'https://spring-boot-angular-app-hweveuhdbrghb2a9.eastus2-01.azurewebsites.net';
 
 // Parsers for POST data
 app.use(bodyParser.json({limit: '20mb'}));
