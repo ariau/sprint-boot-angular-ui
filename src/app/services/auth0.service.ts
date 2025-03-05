@@ -15,7 +15,7 @@ export class AuthService0 {
     createAuth0Client({
       domain: "dev-77nwg0ij570gva1b.us.auth0.com",
       client_id: "YnNGgvscHNP63P59lI9pVp5jNXD1SDl4",
-      audience: 'http://localhost:8080',
+      audience: 'https://spring-boot-angular-app-hweveuhdbrghb2a9.eastus2-01.azurewebsites.net',
       scope: 'openid view:registration view:registrations',
       redirect_uri: `${window.location.origin}`
     })
